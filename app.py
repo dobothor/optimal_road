@@ -6,7 +6,6 @@ import psycopg2
 
 
 app = Flask(__name__)
-server = app.server
 
 @app.route('/', methods=['GET', 'POST'])
 def paintapp():
@@ -48,4 +47,4 @@ def search():
     
 if __name__ == '__main__':
     #port = int(os.environ.get('PORT', 5000))
-    app.run_server(debug=True)
+    app.run(threaded=True, port=5000,debug=True)
