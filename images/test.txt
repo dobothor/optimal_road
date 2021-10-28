@@ -1,0 +1,42 @@
+issue:
+
+recently it take a long time to run
+posts with many comments slow, ~10 hrs sometimes
+
+check garbage collector
+
+sometimes it fails
+
+awards -- takes a lot of text
+	-collects all from posts
+	-dont collect all awards for comments
+
+Hong Kong, novels about martial arts
+kung fu masters disappear, show up when needed
+author (Jin Yong) from the 80s-90s, commonly known all 14 books
+whole Hong Kong knew about it, whole China knew about it
+
+Tao Bao (similar to amazon)
+even call president of company the leader of the gang from
+7th grader
+
+objective, observe before parent
+world more mysterious than thought, dont jump to answer question set out
+similar dynamic in the political left and the right
+
+
+posts
+comments
+
+---------- ----- ----- ----------
+
+next step:
+-script that runs regularly (hourly)
+-automatically downloading it from gsc
+-(secondary) encode awards to less text
+-link for gsc
+
+
+Kwong-Yu:
+-investigate 10 hour issue (gc, top comments, )
+-(secondary) encode awards to less text
