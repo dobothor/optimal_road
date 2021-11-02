@@ -8,3 +8,5 @@ SQLAlchemy==0.9.1
 Werkzeug==0.9.4
 argparse==1.2.1
 psycopg2==2.9.1
+pygithub==1.55
+requests==2.14.0
