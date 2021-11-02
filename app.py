@@ -3,8 +3,8 @@ import sys
 import json
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
-#from github import Github
-#import requests
+from github import Github
+import requests
 
 #g = Github(login_or_token="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") 
 #repo = g.get_user("dobothor").get_repo("optimal_road")
