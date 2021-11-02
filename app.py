@@ -6,9 +6,6 @@ import psycopg2
 from github import Github
 import requests
 
-#g = Github(login_or_token="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") 
-#repo = g.get_user("dobothor").get_repo("optimal_road")
-
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -34,9 +31,11 @@ def save():
     #cur.execute("SELECT id, name, data, canvas_image from files")
     #files = cur.fetchall()
     #conn.close()
-    #content = "Hello Web!"
-    #repo.create_file("images/text3.txt","commiting files", content)
-    #print("Hello!")
+    g = Github(login_or_token="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") 
+    repo = g.get_user("dobothor").get_repo("optimal_road")
+    content = "Hello Web!"
+    repo.create_file("images/text3.txt","commiting files", content)
+    print("Hello!")
     return "nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
