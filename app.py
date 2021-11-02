@@ -25,12 +25,13 @@ def paintapp():
         
 @app.route('/save', methods=['GET', 'POST'])
 def save():
-    conn = psycopg2.connect(database="paintmyown", user="nidhin")
-    cur = conn.cursor()
-    cur.execute("SELECT id, name, data, canvas_image from files")
-    files = cur.fetchall()
-    conn.close()
-    return render_template("save.html", files = files )
+    #conn = psycopg2.connect(database="paintmyown", user="nidhin")
+    #cur = conn.cursor()
+    #cur.execute("SELECT id, name, data, canvas_image from files")
+    #files = cur.fetchall()
+    #conn.close()
+    print("Hello!")
+    return "nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
 def search():
