@@ -34,9 +34,9 @@ def save():
     #cur.execute("SELECT id, name, data, canvas_image from files")
     #files = cur.fetchall()
     #conn.close()
-    content = "Hello Web!"
-    repo.create_file("images/text3.txt","commiting files", content)
-    print("Hello!")
+    #content = "Hello Web!"
+    #repo.create_file("images/text3.txt","commiting files", content)
+    #print("Hello!")
     return "nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
