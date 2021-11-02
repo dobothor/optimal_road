@@ -1,0 +1,37 @@
+
+https://stackabuse.com/deploying-a-flask-application-to-heroku/
+
+https://optimal-road.herokuapp.com/
+https://github.com/dobothor/optimal_road
+
+https://medium.com/@nidhinp.412/paint-app-in-flask-b59fcd2b459d
+https://github.com/nidhinp/Paintapp-Flask-PostgreSQL/
+
+----------
+Tasks:
+-----------
+
+x-make online Paint app [https://optimal-road.herokuapp.com/]
+x-analyze image [user click save image, run algorithm and save to github]
+-find out format of image...convert to pixel array
+-incorporate analyze image on website [when 'save' button is clicked...shrink image before]
+-save image to github(?) [name of image will be user "XXX - SCORE"]  (could store images elsewhere)
+-show images saved in github(?) in gallery tab [sorted by high score]
+-simplify paint interface [remove colors, line width, fill]
+-develop homepage
+
+[Ross]-write description/intro for game [something like hauling carts, plains vs road, no congestion, all point-point connections counted, minimize the travel time throughout the network but building roads is costly]
+[Chuck]-design homepage background--with buttons! ['Play', 'Gallery', 'Credits']
+-modify score [should go up and eventually down with road saturation]
+-brainstorm additional game elements [ie connect neighborhoods, jobs, food, congestion...]
+
+-'inspect' web page to identify sections of code for simplification
+x-find size of canvas
+-find where files save to
+-find where gallery is linked to
+-find where number of colors are displayed [just 1 color]
+-find where fill button is established [delete]
+-find where size of line is established [just 1 size, smallest]
+-find where file name rendering is [delete]
+-find where upper tabs are rendered [want->  Home | Play | Gallery ]
+-find where eraser size is [set default to larger than line]
