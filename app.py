@@ -36,6 +36,7 @@ def savep():
     #repo = g.get_user("dobothor").get_repo("optimal_road")
     #content = "Hello Web!"
     #repo.create_file("images/text3.txt","commiting files", content)
+    print(strong)
     print("Hello!")
     return "nothing" #render_template("save.html", files = files )
     
