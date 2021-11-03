@@ -224,31 +224,5 @@ function eraser(){
 }  
 
 function save(){
-    /* var filename = document.getElementById("fname").value;
-    var data = JSON.stringify(canvas_data);
-    var image = canvas.toDataURL();
-    
-    $.post("/", { save_fname: filename, save_cdata: data, save_image: image });
-    alert(filename + " saved"); */
-  
-    var file = document.getElementById('paint');
-    var form = new FormData();
-    form.append("image", file.files[0])
 
-    var settings = {
-      "url": "https://api.imgbb.com/1/upload?key=4bf38efcff4ef3ef2f5557ddf69e6a6c",
-      "method": "POST",
-      "timeout": 0,
-      "processData": false,
-      "mimeType": "multipart/form-data",
-      "contentType": false,
-      "data": form
-    };
-
-
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      var jx = JSON.parse(response);
-      console.log(jx.data.url);
-    });
 } 
