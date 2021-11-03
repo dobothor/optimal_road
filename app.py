@@ -25,16 +25,17 @@ def paintapp():
         
         
 @app.route('/save', methods=['GET', 'POST'])
-def save():
+def savep():
     #conn = psycopg2.connect(database="paintmyown", user="nidhin")
     #cur = conn.cursor()
     #cur.execute("SELECT id, name, data, canvas_image from files")
     #files = cur.fetchall()
     #conn.close()
-    g = Github(login_or_token="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") 
-    repo = g.get_user("dobothor").get_repo("optimal_road")
-    content = "Hello Web!"
-    repo.create_file("images/text3.txt","commiting files", content)
+    
+    #g = Github(login_or_token="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") 
+    #repo = g.get_user("dobothor").get_repo("optimal_road")
+    #content = "Hello Web!"
+    #repo.create_file("images/text3.txt","commiting files", content)
     print("Hello!")
     return "nothing" #render_template("save.html", files = files )
     
