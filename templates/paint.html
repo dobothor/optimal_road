@@ -126,7 +126,7 @@
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint");
                                                                                             var dataURL = canvas.toDataURL();
                                                                                             var test = [{"test":"test"}];
-                                                                                            $.ajax({type:"POST",
+                                                                                            $.ajax({type:"GET",
                                                                                                     url:'/savep', 
                                                                                                     data:{
                                                                                                      <!--test imageBase64: dataURL-->
