@@ -79,6 +79,7 @@ def savep():
     
     print("calculate score...")
     score = round( (22.6*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)
+    print("dist_list" --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", score)
     
     print("upload image with name to imbgg...")
