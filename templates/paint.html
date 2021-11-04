@@ -123,15 +123,15 @@
             <!--var canvas = document.getElementById("paint");
             var dataURL = canvas.toDataURL();-->
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
-            <script type=text/javascript> $(function() { $("#save").click(function (event) { $.getJSON('/savep', {imageBase64: (dataURL = (document.getElementById("paint")).toDataURL())},
-            function(data) {}); return false; }); }); </script>
+            <script type=text/javascript> $(function() { $("#save").click(function (event) {$.ajax({type="POST",
+                                                                                                    url:'/savep', 
+                                                                                                    data:{
+                                                                                                    imageBase64: ( dataURL = (document.getElementById("paint")).toDataURL() )}
+                                                                          }).done(function() {console.log('sent');}); </script>
+                    
+                    <!--$.getJSON('/savep', {imageBase64: (dataURL = (document.getElementById("paint")).toDataURL())},
+            function(data) {}); return false; }); }); </script> -->
 
-<!-- $.ajax({
-                    type="POST",
-                    url:'/savep', 
-                    data:{imageBase64: ( dataURL = (document.getElementById("paint")).toDataURL() )},
-                    }).done(function() {
-                    console.log('sent');
-                }); </script> -->
+
             
 {% endblock %}
