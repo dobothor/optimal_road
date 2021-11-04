@@ -45,7 +45,7 @@ def savep():
     image_PIL = Image.open(cStringIO.StringIO(image_b64))
     image_np = np.array(image_PIL)
     print("Image received:",(image_np.shape))
-    return "nothing" #render_template("save.html", files = files )
+    return render_template("paint.html")   #"nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
 def search():
