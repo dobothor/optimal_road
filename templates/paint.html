@@ -123,15 +123,11 @@
             <!--var canvas = document.getElementById("paint");
             var dataURL = canvas.toDataURL();-->
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
-            <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint"); var dataURL = canvas.toDataURL(); var test = [{"test":"test"}]; $.getJSON('/savep', {}, function(data) {}); return false; }); }); </script>
+            <script type=text/javascript> $(function() { $("#save").click(function (event) {$.getJSON('/savep', {}, function(data) {}); return false; }); 
+                                                       }); </script>
                                                                                             
                     
-                    <!-- $.ajax({type:"GET",
-                                                                                                    url:'/savep', 
-                                                                                                    data:{
-                                                                                                     test imageBase64: dataURL
-                                                                                                    }
-                                                                                                   }).done(function() {console.log('sent');}); }); }); </script>-->
+                    <!-- $.ajax({type:"GET",url:'/savep', data:{test imageBase64: dataURL}}).done(function() {console.log('sent');}); }); }); </script>-->
 
 
 
