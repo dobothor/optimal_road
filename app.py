@@ -26,7 +26,7 @@ def paintapp():
         conn.close()
         return redirect(url_for('save'))        
         
-        
+#@csrf.exempt
 @app.route('/savep', methods=['GET','POST'])
 def savep():
     #conn = psycopg2.connect(database="paintmyown", user="nidhin")
