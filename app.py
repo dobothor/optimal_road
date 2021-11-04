@@ -44,7 +44,7 @@ def savep():
     #print(test_text)
     image_b64 = request.values['imageBase64']
     print(image_b64)
-    print(typeof(image_b64))
+    print(type(image_b64))
     #image_data = re.sub('^data:image/.+;base64,', '', image_b64).decode('base64')
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64)))
     image_np = np.array(image_PIL)
