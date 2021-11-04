@@ -45,7 +45,7 @@ def savep():
     image_b64 = request.values['imageBase64']
     #image_data = re.sub(
     image_PIL = Image.open(cStringIO.StringIO(image_b64))
-    print("Image received: {}'.format(image_np.shape
+    print("Image received: {}'.format(image_np.shape))
     return "nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
