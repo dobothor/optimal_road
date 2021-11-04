@@ -89,7 +89,7 @@ def savep():
         "image": image_b64,
         "name": str(score),
     }
-    res.requests.post(url,payload)
+    res = requests.post(url,payload)
     print("done")
     #print("Image received:",(image_np.shape))
     
