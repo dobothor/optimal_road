@@ -7,8 +7,8 @@ Jinja2==2.7.2
 SQLAlchemy==0.9.1
 Werkzeug==0.9.4
 argparse==1.2.1
-requests==2.20.1
-pybase==1.2.0
+requests==2.26.0
+pybase64==1.2.0
 regex==2021.11.2
 numpy==1.21.0
 pillow==8.3.1
