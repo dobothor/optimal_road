@@ -2,8 +2,6 @@ import os
 import sys
 import json
 from flask import Flask, render_template, request, redirect, url_for
-import psycopg2
-from github import Github
 import requests
 import base64
 import re
