@@ -126,15 +126,18 @@
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint");
                                                                                             var dataURL = canvas.toDataURL();
                                                                                             var test = [{"test":"test"}];
-                                                                                            $.ajax({type:"GET",
+                                                                                            $.getJSON('/savep', 
+                                                                                                      {},
+                                                                                                      function(data) {}); return false; }); }); </script>
+                                                                                            
+                    
+                    <!-- $.ajax({type:"GET",
                                                                                                     url:'/savep', 
                                                                                                     data:{
                                                                                                      <!--test imageBase64: dataURL-->
                                                                                                     }
-                                                                                                   }).done(function() {console.log('sent');}); }); }); </script>
-                    
-                    <!--$.getJSON('/savep', {imageBase64: (dataURL = (document.getElementById("paint")).toDataURL())},
-            function(data) {}); return false; }); }); </script> -->
+                                                                                                   }).done(function() {console.log('sent');}); }); }); </script>-->
+
 
 
             
