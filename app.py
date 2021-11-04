@@ -27,7 +27,7 @@ def paintapp():
         return redirect(url_for('save'))        
         
         
-@app.route('/savep', methods=['GET', 'POST'])
+@app.route('/savep', methods=['POST'])
 def savep():
     #conn = psycopg2.connect(database="paintmyown", user="nidhin")
     #cur = conn.cursor()
