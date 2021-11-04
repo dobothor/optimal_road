@@ -14,10 +14,10 @@ from igraph import *
 #https://www.abeautifulsite.net/posts/postjson-for-jquery/
 
 def to_i(y, x):
-    return y * im.shape[1] + x
+    return y * 50 + x
 
 def to_coord(index):
-    return int((index-index % im.shape[1]) / im.shape[1]), index % im.shape[1]
+    return int((index- index % 50) / 50), index % 50
 
 r = .1
 
