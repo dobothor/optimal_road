@@ -27,7 +27,7 @@ def paintapp():
         return redirect(url_for('save'))        
         
         
-@app.route('/savep', methods=['POST'])
+@app.route('/savep', methods=['GET','POST'])
 def savep():
     #conn = psycopg2.connect(database="paintmyown", user="nidhin")
     #cur = conn.cursor()
@@ -45,7 +45,7 @@ def savep():
     image_PIL = Image.open(cStringIO.StringIO(image_b64))
     image_np = np.array(image_PIL)
     print("Image received:",(image_np.shape))
-    return render_template("paint.html")   #"nothing" #render_template("save.html", files = files )
+    return "nothing"  #render_template("paint.html") #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
 def search():
