@@ -125,10 +125,11 @@
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint");
                                                                                             var dataURL = canvas.toDataURL();
-                                                                                            $.ajax({type:"GET",
+                                                                                            var test = [{"test":"test"}];
+                                                                                            $.ajax({type:"POST",
                                                                                                     url:'/savep', 
                                                                                                     data:{
-                                                                                                    imageBase64: dataURL
+                                                                                                    test <!--imageBase64: dataURL-->
                                                                                                     }
                                                                                                    }).done(function() {console.log('sent');}); }); }); </script>
                     
