@@ -40,8 +40,8 @@ def savep():
     #content = "Hello Web!"
     #repo.create_file("images/text3.txt","commiting files", content)
     print("Hello!")
-    test_text = request.values['test']
-    print(test_text)
+    #test_text = request.values['test']
+    #print(test_text)
     #image_b64 = request.values['imageBase64']
     #image_data = re.sub(
     #image_PIL = Image.open(cStringIO.StringIO(image_b64))
