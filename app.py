@@ -47,38 +47,51 @@ def savep():
     image_b64 = image_b64[22:]  #image comes encoded with beginning 'data:image/png;base64,'
     #print(image_b64)
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64)))
-    image_np = np.array(image_PIL)
-    #analyze image
-    #lim = [list(j[0:3]) for i in im for j in i]
-    #width = len(im[0])
-    #height = len(im)
-    #edg=[]
-    #dire = list(product([0,1,-1],[0,1,-1]))
-    #for i in range(len(lim)):
-    #    for y_dif, x_dif in dire:
-    #        coord = to_coord(i)
-    #        if coord[0] < 1 or coord[1] < 1 or coord[0] == height-1 or coord[1] == width-1 :
-    #            continue
-    #        #g.add_edge(i,to_i(List[i][0]+x_dif,List[i][1]+y_dif),weight=1)
-    #        if abs(y_dif+x_dif) == 1:
-    #            diag = 1
-    #        else:
-    #            diag = (1+1)**.5
-    #        if lim[i]==[255,255,255]:
-    #            edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
-    #        else:
-    #            edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
+    img = image_PIL.resize((50,50), Image.ANTIALIAS)
+    imn = np.array(img)
+    print("analyze image...")
+    lim = [list(j[0:3]) for i in imn for j in i]
+    width = len(imn[0])
+    height = len(imn)
+    edg=[]
+    dire = list(product([0,1,-1],[0,1,-1]))
+    for i in range(len(lim)):
+        for y_dif, x_dif in dire:
+            coord = to_coord(i)
+            if coord[0] < 1 or coord[1] < 1 or coord[0] == height-1 or coord[1] == width-1 :
+                continue
+            #g.add_edge(i,to_i(List[i][0]+x_dif,List[i][1]+y_dif),weight=1)
+            if abs(y_dif+x_dif) == 1:
+                diag = 1
+            else:
+                diag = (1+1)**.5
+            if lim[i]==[255,255,255]:
+                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
+            else:
+                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
 
-    #G = Graph.TupleList(edg, weights=True)
-    #weight = G.es['weight']     #check if shortest_paths produces smaller pkl
-    #dist = G.shortest_paths_dijkstra(weights=weight)
+    G = Graph.TupleList(edg, weights=True)
+    weight = G.es['weight']     #check if shortest_paths produces smaller pkl
+    dist = G.shortest_paths_dijkstra(weights=weight)
 
-    #dist_list = [y for x in dist for y in x]
-    #roads = [0 if i==[255,255,255] else 1 for i in lim]
-    #calculate score
-    #upload image with name to imbgg
-    #done
-    print("Image received:",(image_np.shape))
+    dist_list = [y for x in dist for y in x]
+    roads = [0 if i==[255,255,255] else 1 for i in lim]
+    
+    print("calculate score...")
+    score = round( (22.6*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)
+    print("Score --", score)
+    
+    print("upload image with name to imbgg...")
+    apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
+    url = "https://api.imgbb.com/1/upload"
+    payload = {
+        "key": apiKey,
+        "image": image_b64,
+        "name": str(score),
+    }
+    res.requests.post(url,payload)
+    print("done")
+    #print("Image received:",(image_np.shape))
     
     
     return "nothing"  #render_template("paint.html") #render_template("save.html", files = files )
