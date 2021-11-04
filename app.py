@@ -5,6 +5,11 @@ from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
 from github import Github
 import requests
+import base64
+import re
+from io import StringIO
+import numpy as np
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -37,8 +42,10 @@ def savep():
     #content = "Hello Web!"
     #repo.create_file("images/text3.txt","commiting files", content)
     print("Hello!")
-    print(strong)
-
+    image_b64 = request.values['imageBase64']
+    #image_data = re.sub(
+    image_PIL = Image.open(cStringIO.StringIO(image_b64))
+    print("Image received: {}'.format(image_np.shape
     return "nothing" #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
