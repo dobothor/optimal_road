@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import requests
 import base64
 import re
-from io import BytesIO
+from io import BytesIO, StringIO
 import numpy as np
 from PIL import Image
 
@@ -43,8 +43,9 @@ def savep():
     #test_text = request.values['test']
     #print(test_text)
     image_b64 = request.values['imageBase64']
-    image_data = re.sub('^data:image/.+;base64,', '', image_b64).decode('base64')
-    image_PIL = Image.open(BytesIO(base64.b64decode(image_data)))
+    print(image_b64)
+    #image_data = re.sub('^data:image/.+;base64,', '', image_b64).decode('base64')
+    image_PIL = Image.open(BytesIO(base64.b64decode(image_b64)))
     image_np = np.array(image_PIL)
     print("Image received:",(image_np.shape))
     return "nothing"  #render_template("paint.html") #render_template("save.html", files = files )
