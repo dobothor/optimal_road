@@ -126,7 +126,7 @@
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint"); 
                                                                                             var dataURL = canvas.toDataURL(); 
                                                                                             var test = [{"test":"test"}];
-                                                                                            $.getJSON('/savep', {}, function(data) {}); return false; }); 
+                                                                                            $.getJSON('/savep', {imageBase64: dataURL}, function(data) {}); return false; }); 
                                                        }); </script>
                                                                                             
                     
