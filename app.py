@@ -88,16 +88,16 @@ def savep():
     #print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     #print("Score --", score)
     
-    #print("upload image with name to imbgg...")
-    #apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
-    #url = "https://api.imgbb.com/1/upload"
-    #payload = {
-    #    "key": apiKey,
-    #    "image": image_b64,
-    #    "name": str(score),
-    #}
-    #res = requests.post(url,payload)
-    #print("done")
+    print("upload image with name to imbgg...")
+    apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
+    url = "https://api.imgbb.com/1/upload"
+    payload = {
+        "key": apiKey,
+        "image": image_b64,
+        "name": str(score),
+    }
+    res = requests.post(url,payload)
+    print("done")
     #print("Image received:",(image_np.shape))
     
     
