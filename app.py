@@ -49,10 +49,14 @@ def savep():
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64)))
     img = image_PIL.resize((50,50), Image.ANTIALIAS)
     imn = np.array(img)
+    imn0 = np.array(img)
     print("analyze image...")
     lim = [list(j[0:3]) for i in imn for j in i]
+    lim0 = [list(j[0:3]) for i in imn0 for j in i] 
     print(lim[0:100])
     print(set(tuple(i) for i in lim))
+    print(lim0[0:100])
+    print(set(tuple(i) for i in lim0))
     #width = len(imn[0])
     #height = len(imn)
     #edg=[]
