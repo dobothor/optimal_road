@@ -51,6 +51,10 @@ def savep():
     img = image_PIL.resize((50,50), Image.ANTIALIAS)
     imn = np.array(img)
     imn0 = np.array(img)
+    print(imn[0][0])
+    lim4 = [list(j[0:4]) for i in imn for j in i]
+    print(lim4[0:100])
+    print(set(tuple(i) for i in lim4))
     print("analyze image...")
     lim = [list(j[0:3]) for i in imn for j in i]
     lim0 = [list(j[0:3]) for i in imn0 for j in i] 
