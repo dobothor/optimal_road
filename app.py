@@ -51,8 +51,8 @@ def savep():
     imn = np.array(img)
     print("analyze image...")
     lim = [list(j[0:3]) for i in imn for j in i]
-    print(lim[0])
-    print(set(lim))
+    print(lim[0:100])
+    print(set(tuple(i) for i in lim))
     #width = len(imn[0])
     #height = len(imn)
     #edg=[]
