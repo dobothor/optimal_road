@@ -50,15 +50,11 @@ def savep():
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64))).convert('RGBA')  #https://stackoverflow.com/questions/53722390/bytesio-replaces-transparency-in-png-files-with-black-background
     img = image_PIL.resize((50,50), Image.ANTIALIAS)
     imn = np.array(img)
-    imn0 = np.array(image_PIL)
-    #print(imn0[0][0])
-    lim4 = [list(j[0:4]) for i in imn0 for j in i]
-    print(lim4[0:100])
-    print(set(tuple(i) for i in lim4))
+    #imn0 = np.array(image_PIL)
     print("analyze image...")
-    lim = [list(j[0:3]) for i in imn for j in i]
-    lim0 = [list(j[0:3]) for i in imn0 for j in i] 
-    print(lim[0:100])
+    lim = [list(j[0:4]) for i in imn for j in i]
+    #lim0 = [list(j[0:3]) for i in imn0 for j in i] 
+    #print(lim[0:100])
     print(set(tuple(i) for i in lim))
     #print(lim0[0:100])
     #print(set(tuple(i) for i in lim0))
@@ -76,7 +72,7 @@ def savep():
                 diag = 1
             else:
                 diag = (1+1)**.5
-            if lim[i]==[255,255,255]:
+            if lim[i]==[0,0,0,0]:
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
             else:
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
@@ -86,7 +82,7 @@ def savep():
     dist = G.shortest_paths_dijkstra(weights=weight)
 
     dist_list = [y for x in dist for y in x]
-    roads = [0 if i==[255,255,255] else 1 for i in lim]
+    roads = [0 if i==[0,0,0,0] else 1 for i in lim]
     
     print("calculate score...")
     score = round( (22.6*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)
