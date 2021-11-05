@@ -47,7 +47,7 @@ def savep():
     #print(type(image_b64))
     image_b64 = image_b64[22:]  #image comes encoded with beginning 'data:image/png;base64,'    #[22:]
     #print(image_b64)
-    image_PIL = Image.open(StringIO(base64.b64decode(image_b64)))
+    image_PIL = Image.open((str(BytesIO(base64.b64decode(image_b64))))
     img = image_PIL.resize((50,50), Image.ANTIALIAS)
     imn = np.array(img)
     imn0 = np.array(img)
