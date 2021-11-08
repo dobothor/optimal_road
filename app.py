@@ -48,6 +48,12 @@ def savep():
     image_b64 = image_b64[22:]  #image comes encoded with beginning 'data:image/png;base64,'    #[22:]
     #print(image_b64)
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64))).convert('RGBA')  #https://stackoverflow.com/questions/53722390/bytesio-replaces-transparency-in-png-files-with-black-background
+    #convert image to numpy
+    #change all (0,0,0,0) to (255,255,255)
+    #change all else to (0,0,0)  
+    #issue may be resizing with transparency, could find cleaner resize function? manually resize? ayayay
+    #ratio of resize_roads to actual_roads is 10 for transparency, only 5 for paint image
+    #alternatively could just weight roads differently in score...could still be connecting connection, but probably not systematically with number of roads
     img = image_PIL.resize((50,30))#, Image.ANTIALIAS)
     imga = image_PIL.resize((50,30), Image.ANTIALIAS)
     imn = np.array(img)
