@@ -79,20 +79,44 @@ def savep():
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
             else:
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
-
+    
     G = Graph.TupleList(edg, weights=True)
     weight = G.es['weight']     #check if shortest_paths produces smaller pkl
     dist = G.shortest_paths_dijkstra(weights=weight)
-
+    
+    edg=[]
+    for i in range(len(lima)):
+        for y_dif, x_dif in dire:
+            coord = to_coord(i)
+            if coord[0] < 1 or coord[1] < 1 or coord[0] == height-1 or coord[1] == width-1 :
+                continue
+            #g.add_edge(i,to_i(List[i][0]+x_dif,List[i][1]+y_dif),weight=1)
+            if abs(y_dif+x_dif) == 1:
+                diag = 1
+            else:
+                diag = (1+1)**.5
+            if lim[i]==[0,0,0,0]:
+                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
+            else:
+                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
+    
+    G = Graph.TupleList(edg, weights=True)
+    weight = G.es['weight']     #check if shortest_paths produces smaller pkl
+    dista = G.shortest_paths_dijkstra(weights=weight)
+    
     dist_list = [y for x in dist for y in x]
+    dist_lista = [y for x in dist for y in x]
     roads = [0 if i==[0,0,0,0] else 1 for i in lim]
     roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
     roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
     print("calculate score...")
     score = round( (24.117*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)  #24.117 is calibrated for 50x30
+    scorea = round( (24.117*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - 1*sum(roadsa), 1)  #24.117 is calibrated for 50x30
     print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", score)
+    print("dist_lista --",sum(dist_lista), "-- roads --",sum(roadsa))
+    print("Score --", scorea)
     
     print("upload image with name to imbgg...")
     apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
