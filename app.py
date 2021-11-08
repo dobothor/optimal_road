@@ -48,12 +48,15 @@ def savep():
     image_b64 = image_b64[22:]  #image comes encoded with beginning 'data:image/png;base64,'    #[22:]
     #print(image_b64)
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64))).convert('RGBA')  #https://stackoverflow.com/questions/53722390/bytesio-replaces-transparency-in-png-files-with-black-background
-    img = image_PIL.resize((50,50), Image.ANTIALIAS)
+    img = image_PIL.resize((50,30))#, Image.ANTIALIAS)
+    imga = image_PIL.resize((50,30), Image.ANTIALIAS)
     imn = np.array(img)
-    #imn0 = np.array(image_PIL)
+    imn0 = np.array(image_PIL)
+    imna = np.array(imga)
     print("analyze image...")
     lim = [list(j[0:4]) for i in imn for j in i]
-    #lim0 = [list(j[0:3]) for i in imn0 for j in i] 
+    lim0 = [list(j[0:3]) for i in imn0 for j in i]
+    lima = [list(j[0:3]) for i in imna for j in i]
     #print(lim[0:100])
     print(set(tuple(i) for i in lim))
     #print(lim0[0:100])
@@ -83,9 +86,11 @@ def savep():
 
     dist_list = [y for x in dist for y in x]
     roads = [0 if i==[0,0,0,0] else 1 for i in lim]
+    roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
+    roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
     print("calculate score...")
-    score = round( (22.6*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)
+    score = round( (24.117*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - 1*sum(roads), 1)  #24.117 is calibrated for 50x30
     print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", score)
     
@@ -99,6 +104,9 @@ def savep():
     }
     res = requests.post(url,payload)
     print("done")
+    print(sum(roads0))
+    print(sum(roadsa))
+    print(sum(roads))
     #print("Image received:",(image_np.shape))
     
     
