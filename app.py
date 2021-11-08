@@ -55,8 +55,8 @@ def savep():
     imna = np.array(imga)
     print("analyze image...")
     lim = [list(j[0:4]) for i in imn for j in i]
-    lim0 = [list(j[0:3]) for i in imn0 for j in i]
-    lima = [list(j[0:3]) for i in imna for j in i]
+    lim0 = [list(j[0:4]) for i in imn0 for j in i]
+    lima = [list(j[0:4]) for i in imna for j in i]
     #print(lim[0:100])
     print(set(tuple(i) for i in lim))
     #print(lim0[0:100])
