@@ -117,8 +117,9 @@ def savep():
     roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
     print("calculate score...")
-    score = round( (22.3457*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - .6*sum(roads), 1)  #24.117 is calibrated for 50x30
-    scorea = round( (22.3457*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - .6*sum(roadsa), 1)  #24.117 is calibrated for 50x30
+    adj = .8
+    score = round( (22.3457*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - .8*sum(roads), 1)  #24.117 is calibrated for 50x30
+    scorea = round( (22.3457*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - .8*sum(roadsa), 1)  #24.117 is calibrated for 50x30
     print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", score)
     print("dist_lista --",sum(dist_lista), "-- roads --",sum(roadsa))
