@@ -4,7 +4,7 @@
     position  : absolute;
     left      : 0px;
     top       : 50px; 
-    background: #35d128;
+    background: #007ec7;
 }
 
 #paint {
@@ -26,7 +26,7 @@
 }
 
 #penciltool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
@@ -37,7 +37,7 @@
 }
 
 #linetool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
@@ -48,7 +48,7 @@
 }
 
 #rectangletool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
@@ -59,7 +59,7 @@
 }
 
 #circletool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
@@ -70,7 +70,7 @@
 }
 
 #erasertool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
@@ -81,7 +81,7 @@
 }
 
 #resettool {
-    background: #358128; 
+    background: #214488; 
     color     : #f3f3f3;
     width     : 80px;
     height    : 25px;
