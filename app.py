@@ -54,15 +54,15 @@ def savep():
     #issue may be resizing with transparency, could find cleaner resize function? manually resize? ayayay
     #ratio of resize_roads to actual_roads is 10 for transparency, only 5 for paint image
     #alternatively could just weight roads differently in score...could still be connecting connection, but probably not systematically with number of roads
-    img = image_PIL.resize((50,30))#, Image.ANTIALIAS)
-    imga = image_PIL.resize((50,30), Image.ANTIALIAS)
+    img = image_PIL.resize((50,30))#, Image.ANTIALIAS)  better without antialias
+    #imga = image_PIL.resize((50,30), Image.ANTIALIAS)
     imn = np.array(img)
-    imn0 = np.array(image_PIL)
-    imna = np.array(imga)
+    #imn0 = np.array(image_PIL)
+    #imna = np.array(imga)
     print("analyze image...")
     lim = [list(j[0:4]) for i in imn for j in i]
-    lim0 = [list(j[0:4]) for i in imn0 for j in i]
-    lima = [list(j[0:4]) for i in imna for j in i]
+    #lim0 = [list(j[0:4]) for i in imn0 for j in i]
+    #lima = [list(j[0:4]) for i in imna for j in i]
     #print(lim[0:100])
     print(set(tuple(i) for i in lim))
     #print(lim0[0:100])
@@ -89,41 +89,21 @@ def savep():
     G = Graph.TupleList(edg, weights=True)
     weight = G.es['weight']     #check if shortest_paths produces smaller pkl
     dist = G.shortest_paths_dijkstra(weights=weight)
-    
-    edg=[]
-    for i in range(len(lima)):
-        for y_dif, x_dif in dire:
-            coord = to_coord(i)
-            if coord[0] < 1 or coord[1] < 1 or coord[0] == height-1 or coord[1] == width-1 :
-                continue
-            #g.add_edge(i,to_i(List[i][0]+x_dif,List[i][1]+y_dif),weight=1)
-            if abs(y_dif+x_dif) == 1:
-                diag = 1
-            else:
-                diag = (1+1)**.5
-            if lima[i]==[0,0,0,0]:
-                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
-            else:
-                edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
-    
-    G = Graph.TupleList(edg, weights=True)
-    weight = G.es['weight']     #check if shortest_paths produces smaller pkl
-    dista = G.shortest_paths_dijkstra(weights=weight)
-    
+
     dist_list = [y for x in dist for y in x]
-    dist_lista = [y for x in dist for y in x]
+    #dist_lista = [y for x in dist for y in x]
     roads = [0 if i==[0,0,0,0] else 1 for i in lim]
-    roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
-    roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
+    #roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
+    #roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
     print("calculate score...")
     adj = .84
-    score = round( (22.3457*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - .8*sum(roads), 1)  #24.117 is calibrated for 50x30
-    scorea = round( (22.3457*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - .8*sum(roadsa), 1)  #24.117 is calibrated for 50x30
+    score = round( (22.3458*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - .8*sum(roads), 0)  #24.117 is calibrated for 50x30
+    #scorea = round( (22.3457*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - .8*sum(roadsa), 0)  #24.117 is calibrated for 50x30
     print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", score)
-    print("dist_lista --",sum(dist_lista), "-- roads --",sum(roadsa))
-    print("Score --", scorea)
+    #print("dist_lista --",sum(dist_lista), "-- roads --",sum(roadsa))
+    #print("Score --", scorea)
     
     print("upload image with name to imbgg...")
     apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
@@ -131,13 +111,13 @@ def savep():
     payload = {
         "key": apiKey,
         "image": image_b64,
-        "name": str(score),
+        "name": 'score'+str(score),
     }
     res = requests.post(url,payload)
     print("done")
-    print(sum(roads0))
+    #print(sum(roads0))
     print(sum(roads))
-    print(sum(roadsa))
+    #print(sum(roadsa))
     #print("Image received:",(image_np.shape))
     
     
