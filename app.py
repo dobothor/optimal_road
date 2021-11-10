@@ -36,7 +36,11 @@ def paintapp():
         cur.execute("INSERT INTO files (name, data, canvas_image) VALUES (%s, %s, %s)", [filename, data, canvas_image])
         conn.commit()
         conn.close()
-        return redirect(url_for('save'))        
+        return redirect(url_for('save'))   
+    
+@app.route('/home',methods=['GET','POST'])
+def home():
+    return render_template("home.html")
         
 #@csrf.exempt
 @app.route('/savep', methods=['GET','POST'])
