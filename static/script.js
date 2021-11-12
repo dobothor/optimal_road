@@ -233,3 +233,5 @@ function eraser(){
 function save(){
 
 } 
+
+init();
