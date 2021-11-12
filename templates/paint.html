@@ -127,7 +127,7 @@
                                                                                             var dataURL = canvas.toDataURL('image/png');
                                                                                             var filename = document.getElementById("fname").value;
                                                                                             $.post('/savep', {imageBase64: dataURL}, function(data) {}, 'json'); });
-                                                                                            <!--$.getJSON('/savep', {imageBase64: dataURL, name: filename}, function(data) {$('body').append(data);}); return false; }); -->
+                                                                                            <!--$.getJSON('/savep', {imageBase64: dataURL, name: filename}, function(data) {}); return false; }); -->
                                                        }); </script>
                                                                                             
                     
