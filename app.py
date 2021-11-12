@@ -85,7 +85,7 @@ def savep():
                 diag = 1
             else:
                 diag = (1+1)**.5
-            if lim[i]==[0,0,0,0]:
+            if lim[i]==[255,255,255,255]:
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), 1*diag) )
             else:
                 edg.append( (i, to_i(coord[0]+x_dif,coord[1]+y_dif), r*diag) )
@@ -96,7 +96,7 @@ def savep():
 
     dist_list = [y for x in dist for y in x]
     #dist_lista = [y for x in dist for y in x]
-    roads = [0 if i==[0,0,0,0] else 1 for i in lim]
+    roads = [0 if i==[255,255,255,255] else 1 for i in lim]
     #roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
     #roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
