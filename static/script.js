@@ -224,9 +224,11 @@ function eraser(){
         
     function draw(){
         ctx.lineTo(curX, curY);
+        var temp = ctx.strokeStyle;
         ctx.strokeStyle = "#ffffff";
         ctx.stroke();
         canvas_data.pencil.push({ "startx": prevX, "starty": prevY, "endx": curX, "endy": curY, "thick": ctx.lineWidth, "color": ctx.strokeStyle });
+        ctx.strokeStyle = temp
     }    
 }  
 
