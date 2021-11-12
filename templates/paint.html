@@ -124,9 +124,10 @@
             var dataURL = canvas.toDataURL();-->
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint");
-                                                                                            var dataURL = canvas.toDataURL('image/png'); 
+                                                                                            var dataURL = canvas.toDataURL('image/png');
+                                                                                            var filename = document.getElementById("fname").value;
                                                                                             $.post('/savep', {imageBase64: dataURL}, function(data) {}, 'json'); });
-                                                                                            <!--$.getJSON('/savep', {imageBase64: dataURL}, function(data) {}); return false; }); -->
+                                                                                            <!--$.getJSON('/savep', {imageBase64: dataURL, name: filename}, function(data) {$('body').append(data);}); return false; }); -->
                                                        }); </script>
                                                                                             
                     
