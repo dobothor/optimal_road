@@ -36,11 +36,16 @@ function outline(){
     fill_value = false;
     stroke_value = true;
 }
-               
+
+function init(){
+    reset();
+}
 function reset(){
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var temp = ctx.fillStyle
     ctx.fillStyle = "white";
     ctx.fillRect(0,0,canvas.width, canvas.height);
+    ctx.fillStyle = temp
     canvas_data = { "pencil": [], "line": [], "rectangle": [], "circle": [], "eraser": [] }
 }
         
