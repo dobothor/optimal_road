@@ -5,8 +5,8 @@ var height = canvas.height;
 var curX, curY, prevX, prevY;
 var hold = false;
 ctx.lineWidth = 2;
-var fill_value = true;
-var stroke_value = false;
+var fill_value = false;
+var stroke_value = true;
 var canvas_data = {"pencil": [], "line": [], "rectangle": [], "circle": [], "eraser": []}
                         
 function color(color_value){
