@@ -116,6 +116,9 @@ def savep():
     print("upload image with name to imbgg...")
     apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
     url = "https://api.imgbb.com/1/upload"
+    if name=='':
+        print("name rewrite")
+        name="anon"
     payload = {
         "key": apiKey,
         "image": image_b64,
@@ -123,12 +126,6 @@ def savep():
     }
     res = requests.post(url,payload)
     print("done")
-    #print(sum(roads0))
-    print(sum(roads))
-    #print(sum(roadsa))
-    #print("Image received:",(image_np.shape))
-    
-    
     return "nothing" #render_template("save.html") #  #render_template("paint.html") #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
