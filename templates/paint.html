@@ -128,7 +128,10 @@
                                                                                             
                                                                                             var filename = document.getElementById("fname").value;
                                                                                             $.post('/savep', {imageBase64: dataURL, text: filename}, function(data) {
-                                                                                                $('#message').html('<div style="position:absolute;margin-top:350px;height:0px;left:920px;right:200px;"> Success! </div>');
+                                                                                                $('#message').html('<div id="alertFadeOut"> Success! </div>');
+                                                                                                $('alertFadeOut').fadeOut(3000, function() {
+                                                                                                    $('alertFadeOut').text('');
+                                                                                                    });
                                                                                                 alert("Hello World!");
                                                                                                 var para = document.getElementById("p");
                                                                                                 var t = document.createTextNode("The file was saved.");
@@ -148,7 +151,7 @@
             
                 <div style="position:absolute;margin-top:-50px;height:0px;left:920px;right:20px;">
                     <h2> Game Rules </h2> 
-                    <p> • Every pixel is connected to the pixels surrounding it </p>
+                    <p id="p"> • Every pixel is connected to the pixels surrounding it </p>
                     <p> • The score is based on the sum of the shortest paths between all pixels </p>
                     <p> • Roads reduce the cost to move between pixels, increasing your score </p>
                     <p> • But building roads is costly, reducing your score is used wastefully </p>
