@@ -46,6 +46,8 @@ def home():
 @app.route('/savep', methods=['GET','POST'])
 def savep():
     image_b64 = request.values['imageBase64']
+    te = request.values['text']
+    print(te)
     #namet = request.values['name']
     #print(namet)
     #print(len(image_b64))
