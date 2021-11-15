@@ -128,11 +128,13 @@
                                                                                             
                                                                                             <!--var filename = document.getElementById("fname").value;-->
                                                                                             $.post('/savep', {imageBase64: dataURL}, function(data) {
-                                                                                            alert("Hello World!");
-                                                                                            var h = document.createElement("p");
-                                                                                            var t = document.createTextNode("Hellow World");
-                                                                                            h.appendChild(t);
-                                                                                            document.body.appendChild(h);
+                                                                                                
+                                                                                                alert("Hello World!");
+                                                                                                var para = document.getElementById("p");
+                                                                                                var t = document.createTextNode("The file was saved.");
+                                                                                                para.appendChild(t);
+                                                                                                document.getElementById("p").textContent += " A 2nd Save!";
+                                                                                                
                                                                                             }, 'json');
                                                                                             
                                                                                            });
@@ -143,7 +145,12 @@
                     <!-- $.ajax({type:"GET",url:'/savep', data:{test imageBase64: dataURL}}).done(function() {console.log('sent');}); }); }); </script>-->
 
             <body onload="init()" >
-            <div align="right"><Hello World!></div>
+            
+                <div align="right">
+                    <hello> Text goes here </hello> 
+                    <p id="p"> This is some text. </p>
+                
+                </div>
 
             
 {% endblock %}
