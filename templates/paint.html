@@ -116,7 +116,7 @@
                 <td><button id="pixel_minus" type="button" onclick="reduce_pixel()" style="width: 25px;">-</button></td>
             </tr> -->
             </table>
-            <label>player name</label><input id="fname" type="text"><button id="save" >Save</button>  <!--onclick="save()" -->
+            <label>Player Name:</label><input id="fname" type="text"><button id="save" >Save</button>  <!--onclick="save()" -->
             </fieldset>
             <!-- <script src="http://code.jquery.com/jquery-1.8.3.js"></script> -->
             <script src=" {{ url_for('static', filename='script.js') }}"></script> 
@@ -154,7 +154,7 @@
                     <p id="p"> • Every pixel is connected to the pixels surrounding it </p>
                     <p> • The score is based on the sum of the shortest paths between all pixels </p>
                     <p> • Roads reduce the cost to move between pixels, increasing your score </p>
-                    <p> • But building roads is costly, reducing your score is used wastefully </p>
+                    <p> • Building roads is costly, reducing your score if used wastefully </p>
                     <p> • Colors are optional, but can denote which player contributed those roads in team play. </p>
                     <h3 style="position:relative;left:10px;"> ► Draw your road network to connect the space as efficiently as possible! </h3>
                     <p> &zwj; </p>
