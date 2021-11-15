@@ -126,7 +126,7 @@
             <script type=text/javascript> $(function() { $("#save").click(function (event) {var canvas = document.getElementById("paint");
                                                                                             var dataURL = canvas.toDataURL('image/png');
                                                                                             
-                                                                                            <!--var filename = document.getElementById("fname").value;-->
+                                                                                            var filename = document.getElementById("fname").value;
                                                                                             $.post('/savep', {imageBase64: dataURL, text: "sample text"}, function(data) {
                                                                                                 
                                                                                                 alert("Hello World!");
