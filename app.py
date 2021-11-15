@@ -129,7 +129,7 @@ def savep():
     #print("Image received:",(image_np.shape))
     
     
-    return 1 #render_template("save.html") #"nothing"  #render_template("paint.html") #render_template("save.html", files = files )
+    return "nothing" #render_template("save.html") #  #render_template("paint.html") #render_template("save.html", files = files )
     
 @app.route('/search', methods=['GET', 'POST'])
 def search():
