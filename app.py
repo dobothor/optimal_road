@@ -46,8 +46,8 @@ def home():
 @app.route('/savep', methods=['GET','POST'])
 def savep():
     image_b64 = request.values['imageBase64']
-    te = request.values['text']
-    print(te)
+    name = request.values['text']
+    print(name)
     #namet = request.values['name']
     #print(namet)
     #print(len(image_b64))
@@ -119,7 +119,7 @@ def savep():
     payload = {
         "key": apiKey,
         "image": image_b64,
-        "name": 'score'+str(int(score)),
+        "name": name+' score '+str(int(score)),
     }
     res = requests.post(url,payload)
     print("done")
