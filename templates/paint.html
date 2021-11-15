@@ -127,7 +127,7 @@
                                                                                             var dataURL = canvas.toDataURL('image/png');
                                                                                             
                                                                                             var filename = document.getElementById("fname").value;
-                                                                                            $.post('/savep', {imageBase64: dataURL, text: "sample text"}, function(data) {
+                                                                                            $.post('/savep', {imageBase64: dataURL, text: filename}, function(data) {
                                                                                                 
                                                                                                 alert("Hello World!");
                                                                                                 var para = document.getElementById("p");
