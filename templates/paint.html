@@ -116,7 +116,7 @@
                 <td><button id="pixel_minus" type="button" onclick="reduce_pixel()" style="width: 25px;">-</button></td>
             </tr> -->
             </table>
-            <label>file name</label><input id="fname" type="text"><button id="save" >Save</button>  <!--onclick="save()" -->
+            <label>player name</label><input id="fname" type="text"><button id="save" >Save</button>  <!--onclick="save()" -->
             </fieldset>
             <!-- <script src="http://code.jquery.com/jquery-1.8.3.js"></script> -->
             <script src=" {{ url_for('static', filename='script.js') }}"></script> 
@@ -128,7 +128,7 @@
                                                                                             
                                                                                             var filename = document.getElementById("fname").value;
                                                                                             $.post('/savep', {imageBase64: dataURL, text: filename}, function(data) {
-                                                                                                
+                                                                                                $('#message').html('<div style="position:absolute;margin-top:350px;height:0px;left:920px;right:200px;"> Success! </div>');
                                                                                                 alert("Hello World!");
                                                                                                 var para = document.getElementById("p");
                                                                                                 var t = document.createTextNode("The file was saved.");
