@@ -119,7 +119,7 @@ def savep():
     payload = {
         "key": apiKey,
         "image": image_b64,
-        "name": name+' score '+str(int(score)),
+        "name": name+str(int(score)),
     }
     res = requests.post(url,payload)
     print("done")
