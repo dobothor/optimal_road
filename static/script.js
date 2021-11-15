@@ -223,7 +223,7 @@ function eraser(){
     };
         
     function draw(){
-        ctx.lineWidth = 6;
+        ctx.lineWidth = 10;
         ctx.lineTo(curX, curY);
         var temp = ctx.strokeStyle;
         ctx.strokeStyle = "#ffffff";
