@@ -51,33 +51,14 @@ def savep():
     image_b64 = request.values['imageBase64']
     name = request.values['text']
     print(name)
-    #namet = request.values['name']
-    #print(namet)
-    #print(len(image_b64))
-    #print(image_b64)
-    #print(type(image_b64))
     image_b64 = image_b64[22:]  #image comes encoded with beginning 'data:image/png;base64,'    #[22:]
     #print(image_b64)
     image_PIL = Image.open(BytesIO(base64.b64decode(image_b64))).convert('RGBA')  #https://stackoverflow.com/questions/53722390/bytesio-replaces-transparency-in-png-files-with-black-background
-    #convert image to numpy
-    #change all (0,0,0,0) to (255,255,255)
-    #change all else to (0,0,0)  
-    #issue may be resizing with transparency, could find cleaner resize function? manually resize? ayayay
-    #ratio of resize_roads to actual_roads is 10 for transparency, only 5 for paint image
-    #alternatively could just weight roads differently in score...could still be connecting connection, but probably not systematically with number of roads
     img = image_PIL.resize((50,30))#, Image.ANTIALIAS)  better without antialias
-    #imga = image_PIL.resize((50,30), Image.ANTIALIAS)
     imn = np.array(img)
-    #imn0 = np.array(image_PIL)
-    #imna = np.array(imga)
     print("analyze image...")
     lim = [list(j[0:4]) for i in imn for j in i]
-    #lim0 = [list(j[0:4]) for i in imn0 for j in i]
-    #lima = [list(j[0:4]) for i in imna for j in i]
-    #print(lim[0:100])
     print(set(tuple(i) for i in lim))
-    #print(lim0[0:100])
-    #print(set(tuple(i) for i in lim0))
     width = len(imn[0])
     height = len(imn)
     edg=[]
@@ -102,19 +83,13 @@ def savep():
     dist = G.shortest_paths_dijkstra(weights=weight)
 
     dist_list = [y for x in dist for y in x]
-    #dist_lista = [y for x in dist for y in x]
     roads = [0 if i==[255,255,255,255] else 1 for i in lim]
-    #roads0 = [0 if i==[0,0,0,0] else 1 for i in lim0]
-    #roadsa = [0 if i==[0,0,0,0] else 1 for i in lima]
     
     print("calculate score...")
     adj = .84
     score = round( (22.3458*len(lim)**2-sum(dist_list))/sum(dist_list)*100 - .8*sum(roads), 0)  #24.117 is calibrated for 50x30
-    #scorea = round( (22.3457*len(lim)**2-sum(dist_lista))/sum(dist_lista)*100 - .8*sum(roadsa), 0)  #24.117 is calibrated for 50x30
     print("dist_list --",sum(dist_list), "-- roads --",sum(roads))
     print("Score --", int(score))
-    #print("dist_lista --",sum(dist_lista), "-- roads --",sum(roadsa))
-    #print("Score --", scorea)
     
     print("upload image with name to imbgg...")
     apiKey = '4bf38efcff4ef3ef2f5557ddf69e6a6c'
