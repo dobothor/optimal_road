@@ -1,3 +1,6 @@
+#primary improvements:
+# confirm save, print score on screen, easier to understand rules, ovals not circles, imgbb naming convention
+
 import os
 import sys
 import json
