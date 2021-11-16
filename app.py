@@ -119,6 +119,7 @@ def savep():
     if name=='':
         print("name rewrite")
         name="anon"
+    name = ''.join([i for i in name if not i.isdigit()])  #removes any numbers from the name to avoid scoring confusion
     payload = {
         "key": apiKey,
         "image": image_b64,
